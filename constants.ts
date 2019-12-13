@@ -22,8 +22,18 @@ namespace escape {
     init();
 
     export function sniffToConsole() {
+        const msg: string[] = [];
+        msg[ADD_MINUTE] = "add min"
+        msg[REMOVE_MINUTE] = "remove min"
+        msg[RESET_CLOCK] = "reset clock"
+        msg[REMAINING_SECONDS] = "remaining secs"
+        msg[LOCK_CLOSED] = "lock closed"
+        msg[LOCK_OPEN] = "lock open"
+        msg[LOCK_STATUS] = "lock status"
+        msg[CODE] = "code"
         radio.onReceivedBuffer(b => {
-            console.log(b.toHex())
+            led.toggle(0, 0)
+            console.log(`${msg[b[0]]} ${b.slice(1).toHex()}`)
         })
     }
 }
