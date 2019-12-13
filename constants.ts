@@ -38,4 +38,10 @@ namespace escape {
         msg[TIME_OVER] = "time over"
         console.log(`${msg[b[0]]} ${b.slice(1).toHex()}`)
     }
+
+    export function showGameOver() {
+        basic.showIcon(IconNames.Ghost);
+        game.addScore(1)
+        basic.pause(100)
+    }
 }
