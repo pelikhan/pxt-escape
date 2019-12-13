@@ -2,6 +2,7 @@ namespace escape {
     // all constants
     export const RADIO_GROUP = 42
     export const TOTAL_SECONDS = 600
+    export const key = [3, 7, 9, 1]; // key of combination lock
 
     // messages
     export const ADD_MINUTE = 1
