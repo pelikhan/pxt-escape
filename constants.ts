@@ -41,9 +41,16 @@ namespace escape {
         console.log(`${msg[b[0]] || b[0]} ${b.slice(1).toHex()}`)
     }
 
-    export function showGameOver() {
-        basic.showIcon(IconNames.Ghost);
+    export function showLose() {
+        basic.showIcon(IconNames.Skull);
         game.addScore(1)
-        basic.pause(100)
+        basic.showString("LOSE")
+    }
+
+    export function showWin() {
+        basic.showIcon(IconNames.Heart);
+        basic.showIcon(IconNames.SmallHeart);
+        game.addScore(1)
+        basic.showString("WIN")
     }
 }
