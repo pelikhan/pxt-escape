@@ -1,0 +1,16 @@
+{
+    "name": "escape",
+    "dependencies": {
+        "core": "*",
+        "radio": "*"
+    },
+    "description": "",
+    "files": [
+        "main.ts",
+        "README.md"
+    ],
+    "preferredEditor": "tsprj",
+    "testFiles": [
+        "test.ts"
+    ]
+}
