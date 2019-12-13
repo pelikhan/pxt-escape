@@ -13,7 +13,7 @@ namespace escape {
     export const LOCK_STATUS = 7
     export const CODE = 8
     export const TIME_OVER = 9
-    export const BOMB_DEACTIVATE = 10
+    export const BOMB_DEACTIVATED = 10
 
     export const LOCK_COUNT = 4
     export let ALL_UNLOCKED = 0
@@ -37,7 +37,7 @@ namespace escape {
         msg[LOCK_STATUS] = "lock status"
         msg[CODE] = "code"
         msg[TIME_OVER] = "time over"
-        msg[BOMB_DEACTIVATE] = "bomb deactivate"
+        msg[BOMB_DEACTIVATED] = "bomb deactivated"
         console.log(`${msg[b[0]] || b[0]} ${b.slice(1).toHex()}`)
     }
 
