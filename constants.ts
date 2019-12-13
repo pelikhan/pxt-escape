@@ -9,6 +9,7 @@ namespace escape {
     export const LOCK_OPEN = 6
     export const LOCK_STATUS = 7
     export const CODE = 8
+
     export const LOCK_COUNT = 4
     export let ALL_UNLOCKED = 0
 
@@ -16,6 +17,13 @@ namespace escape {
         for (let i = 0; i < LOCK_COUNT; ++i)
             ALL_UNLOCKED |= 1 << i;
         radio.setGroup(RADIO_GROUP);
+        radio.setTransmitSerialNumber(true);
     }
     init();
+
+    export function sniffToConsole() {
+        radio.onReceivedBuffer(b => {
+            console.log(b.toHex())
+        })
+    }
 }
