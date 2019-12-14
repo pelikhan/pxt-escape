@@ -10,6 +10,8 @@ used in the escape.
 a gizmo controlling a single digit for a 4number lock
 * [escape phone](https://github.com/pelikhan/pxt-escape-phone),
 rotary phone driver to send codes over radio
+* [escape bomb](https://github.com/pelikhan/pxt-escape-bomb),
+a hidden micro:bit that needs to be disabled by pressing a button
 
 ## Use this extension
 
