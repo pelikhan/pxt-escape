@@ -3,7 +3,7 @@ namespace escape {
     export const RADIO_GROUP = 42
     export const TOTAL_SECONDS = 600
     export const key = [3, 7, 9, 1]; // key of combination lock
-    export const codes = [12195, 3592, 48462451, 853]
+    export const codes = [121915, 3592, 48462451, 853]
 
     // messages
     export const ADD_MINUTE = 1
