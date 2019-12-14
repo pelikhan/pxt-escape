@@ -3,6 +3,7 @@ namespace escape {
     export const RADIO_GROUP = 42
     export const TOTAL_SECONDS = 600
     export const key = [3, 7, 9, 1]; // key of combination lock
+    export const codes = [12195, 3592, 48462451, 853]
 
     // messages
     export const ADD_MINUTE = 1
@@ -16,10 +17,11 @@ namespace escape {
     export const TIME_OVER = 9
     export const BOMB_DEACTIVATED = 10
 
-    export const LOCK_COUNT = 4
+    export let LOCK_COUNT = 4
     export let ALL_UNLOCKED = 0
 
     function init() {
+        LOCK_COUNT = key.length;
         for (let i = 0; i < LOCK_COUNT; ++i)
             ALL_UNLOCKED |= 1 << i;
         radio.setGroup(RADIO_GROUP);
