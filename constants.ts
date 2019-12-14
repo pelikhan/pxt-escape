@@ -61,7 +61,7 @@ namespace escape {
 
     export function broadcastMessage(msg: number) {
         const b = control.createBuffer(1)
-        b[0] = msg | 0xff;
+        b[0] = msg;
         radio.sendBuffer(b);
     }
 }
