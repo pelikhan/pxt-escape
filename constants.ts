@@ -58,4 +58,10 @@ namespace escape {
         game.addScore(1)
         basic.showString("WIN")
     }
+
+    export function broadcastMessage(msg: number) {
+        const b = control.createBuffer(1)
+        b[0] = msg | 0xff;
+        radio.sendBuffer(b);
+    }
 }
