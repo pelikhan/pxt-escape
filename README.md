@@ -1,6 +1,15 @@
 # pxt-escape ![Build status badge](https://github.com/pelikhan/pxt-escape/workflows/MakeCode/badge.svg)
 
+This extension provides the base protocol and helpers
+to build connected **escape room** gizmos. Other existing repoes
+using this framework:
 
+* [escape clock](https://github.com/pelikhan/pxt-escape-clock), the clock
+used in the escape.
+* [escape lock](https://github.com/pelikhan/pxt-escape-lock),
+a gizmo controlling a single digit for a 4number lock
+* [escape phone](https://github.com/pelikhan/pxt-escape-phone),
+rotary phone driver to send codes over radio
 
 ## Use this extension
 
@@ -27,7 +36,6 @@ This section shows the blocks code from the last commit in master.
 
 ## Supported targets
 
-* for PXT/microbit
 * for PXT/microbit
 (The metadata above is needed for package search.)
 
