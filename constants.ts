@@ -38,7 +38,6 @@ namespace escape {
     }
     // keep track of the overall game state
     export let gameState = GameState.Active;
-    export let deviceName: string;
 
     function init() {
         LOCK_COUNT = PHYSICAL_LOCK_KEY.length;
