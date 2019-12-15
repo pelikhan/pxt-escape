@@ -111,7 +111,7 @@ namespace escape {
         })
     }
 
-    export function onUpdate(handler: () => {}) {
+    export function onUpdate(handler: () => void) {
         basic.forever(function () {
             switch (gameState) {
                 case GameState.Lost:
