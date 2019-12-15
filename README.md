@@ -6,6 +6,13 @@ using this framework:
 
 ## Elements
 
+## Game Master
+
+The [game master](https://github.com/pelikhan/pxt-escape-game-master)
+allows to control the clock, reset the game and log all messages.
+Connect the micro:bit game master to the editor to 
+see the messages in the console.
+
 ### Clock
 
 The [escape clock](https://github.com/pelikhan/pxt-escape-clock)
