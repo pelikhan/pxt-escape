@@ -27,6 +27,7 @@ namespace escape {
     export const RESET = 11
     export const CODE_IMPULSE = 12
     export const CODE_DIGIT = 13
+    const UPDATE = 14
 
     export let LOCK_COUNT = 4
     export let ALL_UNLOCKED = 0
@@ -36,7 +37,10 @@ namespace escape {
         Won,
         Lost
     }
-    // keep track of the overall game state
+
+    /**
+     * The current win/loose game state
+     */
     export let gameState = GameState.Active;
 
     function init() {
@@ -47,7 +51,6 @@ namespace escape {
         radio.setTransmitSerialNumber(true);
         onMessageReceived(undefined);
     }
-    init();
 
     const msg: string[] = [];
     msg[ADD_MINUTE] = "add min"
@@ -85,10 +88,16 @@ namespace escape {
         basic.showString("WIN")
     }
 
+    /**
+     * Register code to run when a game event is raised.
+     */
     export function onEvent(event: number, handler: () => void) {
         control.onEvent(ESCAPE_EVENT_ID, event, handler);
     }
 
+    /**
+     * Register a handler for a given message
+     */
     export function onMessageReceived(handler: (msg: number, data: Buffer) => void) {
         radio.onReceivedBuffer(b => {
             logMessage(b);
@@ -113,21 +122,37 @@ namespace escape {
         })
     }
 
+    /**
+     * Registers a background rendering constant
+     */
     export function onUpdate(handler: () => void) {
+        control.onEvent(ESCAPE_EVENT_ID, UPDATE, handler);
+    }
+
+    function renderLoop() {
+        // background rendering loop
         basic.forever(function () {
             switch (gameState) {
                 case GameState.Lost:
                     showLose(); break;
                 case GameState.Won:
                     showWin(); break;
-                default: handler(); break;
+                default:
+                    control.raiseEvent(ESCAPE_EVENT_ID, UPDATE);
+                    break;
             }
-        })
+        })        
     }
 
+    /**
+     * Sends a code message to other escape gizmos
+     */
     export function broadcastMessage(msg: number) {
         const b = control.createBuffer(1)
         b[0] = msg;
         radio.sendBuffer(b);
     }
+
+    init();    
+    renderLoop();
 }
