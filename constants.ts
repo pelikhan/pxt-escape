@@ -38,6 +38,7 @@ namespace escape {
     }
     // keep track of the overall game state
     export let gameState = GameState.Active;
+    export let deviceName: string;
 
     function init() {
         LOCK_COUNT = PHYSICAL_LOCK_KEY.length;
@@ -88,11 +89,6 @@ namespace escape {
         control.onEvent(ESCAPE_EVENT_ID, event, handler);
     }
 
-    export function onReset(handler: () => void) {
-        onEvent(escape.RESET, handler);
-        handler();
-    }  
-
     export function onMessageReceived(handler: (msg: number, data: Buffer) => void) {
         radio.onReceivedBuffer(b => {
             logMessage(b);
@@ -100,7 +96,7 @@ namespace escape {
             const data = b.slice(1)
             switch (msg) {
                 case RESET:
-                    gameState = GameState.Active;
+                    control.reset();
                     break;
                 case TIME_OVER:
                     if (gameState == GameState.Active)
@@ -111,7 +107,6 @@ namespace escape {
                         gameState = GameState.Won;
                     break;
             }
-
             control.raiseEvent(ESCAPE_EVENT_ID, msg)
             handler(msg, data)
         })
