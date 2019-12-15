@@ -66,7 +66,6 @@ namespace escape {
 
     export function showLose() {
         basic.showIcon(IconNames.Skull);
-        game.addScore(1)
         basic.showString("LOSE")
     }
 
