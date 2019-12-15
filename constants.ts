@@ -1,9 +1,16 @@
 namespace escape {
+    // configuration
+    // this is the key to the physical lock
+    // for the detonator box. Updated as needed
+    export const PHYSICAL_LOCK_KEY = [3, 7, 9, 1]; // key of combination lock
+    // these are the various codes that will need to be transmitted
+    // via CODE messages. Updated as weeded
+    export const CODES = [121915, 3592, 48462452, 853]
+    // time to solve the room
+    export const TOTAL_SECONDS = 1200
+
     // all constants
     export const RADIO_GROUP = 42
-    export const TOTAL_SECONDS = 600
-    export const key = [3, 7, 9, 1]; // key of combination lock
-    export const codes = [121915, 3592, 48462452, 853]
 
     // messages
     export const ADD_MINUTE = 1
@@ -22,7 +29,7 @@ namespace escape {
     export let ALL_UNLOCKED = 0
 
     function init() {
-        LOCK_COUNT = key.length;
+        LOCK_COUNT = PHYSICAL_LOCK_KEY.length;
         for (let i = 0; i < LOCK_COUNT; ++i)
             ALL_UNLOCKED |= 1 << i;
         radio.setGroup(RADIO_GROUP);
@@ -30,19 +37,20 @@ namespace escape {
     }
     init();
 
+    const msg: string[] = [];
+    msg[ADD_MINUTE] = "add min"
+    msg[REMOVE_MINUTE] = "remove min"
+    msg[RESET_CLOCK] = "reset clock"
+    msg[REMAINING_SECONDS] = "remaining secs"
+    msg[LOCK_CLOSED] = "lock closed"
+    msg[LOCK_OPEN] = "lock open"
+    msg[LOCK_STATUS] = "lock status"
+    msg[CODE] = "code"
+    msg[TIME_OVER] = "time over"
+    msg[BOMB_DEACTIVATED] = "bomb deactivated"
+    msg[RESET] = "reset"
+
     export function logMessage(b: Buffer) {
-        const msg: string[] = [];
-        msg[ADD_MINUTE] = "add min"
-        msg[REMOVE_MINUTE] = "remove min"
-        msg[RESET_CLOCK] = "reset clock"
-        msg[REMAINING_SECONDS] = "remaining secs"
-        msg[LOCK_CLOSED] = "lock closed"
-        msg[LOCK_OPEN] = "lock open"
-        msg[LOCK_STATUS] = "lock status"
-        msg[CODE] = "code"
-        msg[TIME_OVER] = "time over"
-        msg[BOMB_DEACTIVATED] = "bomb deactivated"
-        msg[RESET] = "reset"
         console.log(`${msg[b[0]] || b[0]} ${b.slice(1).toHex()}`)
     }
 
