@@ -67,7 +67,7 @@ namespace escape {
         let txt = msg[b[0]] || b[0].toString();
         if (b.length == 5)
             txt += ' ' + b.getNumber(NumberFormat.UInt32LE, 1)
-        else 
+        else
             txt += ' ' + b.slice(1)
         console.log(txt)
     }
@@ -84,11 +84,15 @@ namespace escape {
         basic.showString("WIN")
     }
 
+    export function onEvent(event: number, handler: () => void) {
+        control.onEvent(ESCAPE_EVENT_ID, event, handler);
+    }    
+
     export function onMessageReceived(handler: (msg: number, data: Buffer) => void) {
         radio.onReceivedBuffer(b => {
             const msg = b[0];
             const data = b.slice(1)
-            switch(msg) {
+            switch (msg) {
                 case RESET:
                     gameState = GameState.Active;
                     break;
@@ -107,8 +111,16 @@ namespace escape {
         })
     }
 
-    export function onMessageEvent(event: number, handler: () => void) {
-        control.onEvent(ESCAPE_EVENT_ID, event, handler);
+    export function onUpdate(handler: () => {}) {
+        basic.forever(function () {
+            switch (gameState) {
+                case GameState.Lost:
+                    showLose(); break;
+                case GameState.Won:
+                    showWin(); break;
+                default: handler(); break;
+            }
+        })
     }
 
     export function broadcastMessage(msg: number) {
