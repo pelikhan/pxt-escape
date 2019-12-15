@@ -86,7 +86,11 @@ namespace escape {
 
     export function onEvent(event: number, handler: () => void) {
         control.onEvent(ESCAPE_EVENT_ID, event, handler);
-    }    
+    }
+
+    export function onReset(handler: () => void) {
+        onEvent(escape.RESET, handler);
+    }  
 
     export function onMessageReceived(handler: (msg: number, data: Buffer) => void) {
         radio.onReceivedBuffer(b => {
