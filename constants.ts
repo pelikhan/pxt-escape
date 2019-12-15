@@ -45,6 +45,7 @@ namespace escape {
             ALL_UNLOCKED |= 1 << i;
         radio.setGroup(RADIO_GROUP);
         radio.setTransmitSerialNumber(true);
+        onMessageReceived(undefined);
     }
     init();
 
@@ -107,7 +108,8 @@ namespace escape {
                     break;
             }
             control.raiseEvent(ESCAPE_EVENT_ID, msg)
-            handler(msg, data)
+            if (handler)
+                handler(msg, data)
         })
     }
 
