@@ -63,7 +63,7 @@ namespace escape {
     msg[CODE_IMPULSE] = "code impulse"
     msg[CODE_DIGIT] = "code digit"
 
-    export function logMessage(b: Buffer) {
+    function logMessage(b: Buffer) {
         let txt = msg[b[0]] || b[0].toString();
         if (b.length == 5)
             txt += ' ' + b.getNumber(NumberFormat.UInt32LE, 1)
@@ -72,12 +72,12 @@ namespace escape {
         console.log(txt)
     }
 
-    export function showLose() {
+    function showLose() {
         basic.showIcon(IconNames.Skull);
         basic.showString("LOSE")
     }
 
-    export function showWin() {
+    function showWin() {
         basic.showIcon(IconNames.Heart);
         basic.showIcon(IconNames.SmallHeart);
         game.addScore(1)
@@ -90,10 +90,12 @@ namespace escape {
 
     export function onReset(handler: () => void) {
         onEvent(escape.RESET, handler);
+        handler();
     }  
 
     export function onMessageReceived(handler: (msg: number, data: Buffer) => void) {
         radio.onReceivedBuffer(b => {
+            logMessage(b);
             const msg = b[0];
             const data = b.slice(1)
             switch (msg) {
