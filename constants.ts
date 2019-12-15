@@ -67,6 +67,10 @@ namespace escape {
         basic.showString("WIN")
     }
 
+    export function onMessageReceived(handler: (msg: number, data: Buffer) => void) {
+        radio.onReceivedBuffer(b => handler(b[0], b.slice(1)))
+    }
+
     export function broadcastMessage(msg: number) {
         const b = control.createBuffer(1)
         b[0] = msg;
