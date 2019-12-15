@@ -1,4 +1,5 @@
 namespace escape {
+    const ESCAPE_EVENT_ID = 6574;
     // configuration
     // this is the key to the physical lock
     // for the detonator box. Updated as needed
@@ -24,6 +25,8 @@ namespace escape {
     export const TIME_OVER = 9
     export const BOMB_DEACTIVATED = 10
     export const RESET = 11
+    export const CODE_IMPULSE = 12
+    export const CODE_DIGIT = 13
 
     export let LOCK_COUNT = 4
     export let ALL_UNLOCKED = 0
@@ -49,9 +52,16 @@ namespace escape {
     msg[TIME_OVER] = "time over"
     msg[BOMB_DEACTIVATED] = "bomb deactivated"
     msg[RESET] = "reset"
+    msg[CODE_IMPULSE] = "code impulse"
+    msg[CODE_DIGIT] = "code digit"
 
     export function logMessage(b: Buffer) {
-        console.log(`${msg[b[0]] || b[0]} ${b.slice(1).toHex()}`)
+        let txt = msg[b[0]] || b[0].toString();
+        if (b.length == 5)
+            txt += ' ' + b.getNumber(NumberFormat.UInt32LE, 1)
+        else 
+            txt += ' ' + b.slice(1)
+        console.log(txt)
     }
 
     export function showLose() {
@@ -68,7 +78,16 @@ namespace escape {
     }
 
     export function onMessageReceived(handler: (msg: number, data: Buffer) => void) {
-        radio.onReceivedBuffer(b => handler(b[0], b.slice(1)))
+        radio.onReceivedBuffer(b => {
+            const msg = b[0];
+            const data = b.slice(1)
+            control.raiseEvent(ESCAPE_EVENT_ID, msg)
+            handler(msg, data)
+        })
+    }
+
+    export function onMessageEvent(event: number, handler: () => void) {
+        control.onEvent(ESCAPE_EVENT_ID, event, handler);
     }
 
     export function broadcastMessage(msg: number) {
