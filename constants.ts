@@ -31,6 +31,14 @@ namespace escape {
     export let LOCK_COUNT = 4
     export let ALL_UNLOCKED = 0
 
+    export const enum GameState {
+        Active,
+        Won,
+        Lost
+    }
+    // keep track of the overall game state
+    export let gameState = GameState.Active;
+
     function init() {
         LOCK_COUNT = PHYSICAL_LOCK_KEY.length;
         for (let i = 0; i < LOCK_COUNT; ++i)
@@ -80,6 +88,20 @@ namespace escape {
         radio.onReceivedBuffer(b => {
             const msg = b[0];
             const data = b.slice(1)
+            switch(msg) {
+                case RESET:
+                    gameState = GameState.Active;
+                    break;
+                case TIME_OVER:
+                    if (gameState == GameState.Active)
+                        gameState = GameState.Lost;
+                    break;
+                case BOMB_DEACTIVATED:
+                    if (gameState == GameState.Active)
+                        gameState = GameState.Won;
+                    break;
+            }
+
             control.raiseEvent(ESCAPE_EVENT_ID, msg)
             handler(msg, data)
         })
