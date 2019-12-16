@@ -3,6 +3,8 @@
 This extension provides the base protocol and helpers
 to build connected **escape room** gizmos.
 
+https://youtu.be/je-6slUD054
+
 ## Devices
 
 ### Game Master
