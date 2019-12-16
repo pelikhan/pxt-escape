@@ -14,9 +14,6 @@ namespace escape {
     export const RADIO_GROUP = 42
 
     // messages
-    export const ADD_MINUTE = 1
-    export const REMOVE_MINUTE = 2
-    export const RESET_CLOCK = 3
     export const REMAINING_SECONDS = 4
     export const LOCK_CLOSED = 5
     export const LOCK_OPEN = 6
@@ -53,9 +50,6 @@ namespace escape {
     }
 
     const msg: string[] = [];
-    msg[ADD_MINUTE] = "add min"
-    msg[REMOVE_MINUTE] = "remove min"
-    msg[RESET_CLOCK] = "reset clock"
     msg[REMAINING_SECONDS] = "remaining secs"
     msg[LOCK_CLOSED] = "lock closed"
     msg[LOCK_OPEN] = "lock open"
