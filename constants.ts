@@ -25,8 +25,9 @@ namespace escape {
     export const BOMB_DEACTIVATED = 10
     export const RESET = 11
     export const CODE_IMPULSE = 12
-    export const CODE_DIGIT = 13
+    export const CODE_DIGIT = 13    
     const UPDATE = 14
+    export const SHOW_CODE = 15
 
     export let LOCK_COUNT = 4
     export let ALL_UNLOCKED = 0
@@ -62,6 +63,7 @@ namespace escape {
     msg[RESET] = "reset"
     msg[CODE_IMPULSE] = "code impulse"
     msg[CODE_DIGIT] = "code digit"
+    msg[SHOW_CODE] = "show code"
 
     function logMessage(b: Buffer) {
         let txt = msg[b[0]] || b[0].toString();
