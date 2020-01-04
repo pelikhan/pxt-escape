@@ -7,8 +7,8 @@ namespace escape {
     // these are the various codes that will need to be transmitted
     // via CODE messages. Updated as weeded
     export const CODES = [121915, 3592, 48462452, 853]
-    // time to solve the room
-    export const TOTAL_SECONDS = 1200
+    // time to solve the room 30 minutes
+    export const TOTAL_SECONDS = 30 * 60;
     // number of retries when sending code packets
     export const CODE_RETRY = 3;
 
