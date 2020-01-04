@@ -27,7 +27,6 @@ namespace escape {
     export const CODE_IMPULSE = 12
     export const CODE_DIGIT = 13    
     const UPDATE = 14
-    export const SHOW_CODE = 15
 
     export let LOCK_COUNT = 4
     export let ALL_UNLOCKED = 0
@@ -63,7 +62,6 @@ namespace escape {
     msg[RESET] = "reset"
     msg[CODE_IMPULSE] = "code impulse"
     msg[CODE_DIGIT] = "code digit"
-    msg[SHOW_CODE] = "show code"
 
     function logMessage(b: Buffer) {
         let txt = msg[b[0]] || b[0].toString();
@@ -168,6 +166,43 @@ namespace escape {
         for (let i = 0; i < CODE_RETRY; ++i) {
             escape.broadcastMessageNumber(escape.CODE, codeNumber);
             basic.pause(5);
+        }
+    }
+
+    /**
+     * Encodes a number as a binary sequence of A,B where A = 0, B = 1
+     */
+    export function toAB(c: number) {
+        let s = ""
+        do {
+            s += !!(c & 0x1) ? "B" : "A";
+            c >>= 1;
+        } while (c);
+        return s;
+    }
+
+    /**
+     * Decodes a sequence of A,B as a binary number where A = 0, B = 1
+     */
+    export function fromAB(s: string) {
+        let c = 0;
+        for(let i = 0; i < s.length; ++i) {
+            if (s[i] == "B")
+                c |= 0x1;
+            c <<= 1;
+        }
+        return c;
+    }
+
+    export function showCodes() {
+        for(let i = 0; i < CODES.length; ++i) {
+            basic.clearScreen();
+            basic.showString(`CODE/${i}`)
+            const c = CODES[i];
+            basic.showNumber(c);
+            basic.pause(500);
+            basic.showString(toAB(c));
+            basic.pause(2000);
         }
     }
 
