@@ -135,7 +135,7 @@ namespace escape {
                     control.raiseEvent(ESCAPE_EVENT_ID, UPDATE);
                     break;
             }
-        })        
+        })
     }
 
     /**
@@ -147,6 +147,16 @@ namespace escape {
         radio.sendBuffer(b);
     }
 
-    init();    
+    /**
+     * Sends a code message with a 32-bit unsigned code
+     */
+    export function broadcastMessageNumber(msg: number, codeNumber: number) {
+        const b = control.createBuffer(5);
+        b[0] = msg;
+        b.setNumber(NumberFormat.UInt32LE, 1, codeNumber);
+        radio.sendBuffer(b);
+    }
+
+    init();
     renderLoop();
 }
