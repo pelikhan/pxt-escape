@@ -9,6 +9,8 @@ namespace escape {
     export const CODES = [121915, 3592, 48462452, 853]
     // time to solve the room
     export const TOTAL_SECONDS = 1200
+    // number of retries when sending code packets
+    export const CODE_RETRY = 3;
 
     // all constants
     export const RADIO_GROUP = 42
@@ -155,6 +157,16 @@ namespace escape {
         b[0] = msg;
         b.setNumber(NumberFormat.UInt32LE, 1, codeNumber);
         radio.sendBuffer(b);
+    }
+
+    /**
+     * Sends a code message with a few retries
+     */
+    export function broadcastCodeMessage(codeNumber: number) {
+        for (let i = 0; i < CODE_RETRY; ++i) {
+            escape.broadcastMessageNumber(escape.CODE, codeNumber);
+            basic.pause(5);
+        }
     }
 
     init();
