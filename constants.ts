@@ -68,7 +68,7 @@ namespace escape {
         if (b.length == 5)
             txt += ' ' + b.getNumber(NumberFormat.UInt32LE, 1)
         else
-            txt += ' ' + b.slice(1)
+            txt += ' ' + b.slice(1).toHex()
         console.log(txt)
     }
 
