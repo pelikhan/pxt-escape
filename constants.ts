@@ -1,19 +1,21 @@
 namespace escape {
-    const ESCAPE_EVENT_ID = 6574;
     // configuration
+    // 1) physical lock combination
     // this is the key to the physical lock
     // for the detonator box. Updated as needed
-    export const PHYSICAL_LOCK_KEY = [3, 7, 9, 1]; // key of combination lock
+    export const PHYSICAL_LOCK_KEY = [3, 7, 9, 1];
+    // 2) lock codes
     // these are the various codes that will need to be transmitted
-    // via CODE messages. Updated as weeded
+    // via CODE messages. Updated as needed
     export const CODES = [121915, 3592, 48462452, 853]
+    // 3) total time
     // time to solve the room 30 minutes
     export const TOTAL_SECONDS = 30 * 60;
-    // number of retries when sending code packets
-    export const CODE_RETRY = 3;
 
     // all constants
+    const ESCAPE_EVENT_ID = 6574;
     export const RADIO_GROUP = 42
+    export const CODE_RETRY = 3;
 
     // messages
     export const REMAINING_SECONDS = 4
@@ -55,7 +57,7 @@ namespace escape {
     msg[REMAINING_SECONDS] = "remaining secs"
     msg[LOCK_CLOSED] = "lock closed"
     msg[LOCK_OPEN] = "lock open"
-    msg[LOCK_STATUS] = "lock status"
+    //msg[LOCK_STATUS] = "lock status"
     msg[CODE] = "code"
     msg[TIME_OVER] = "time over"
     msg[BOMB_DEACTIVATED] = "bomb deactivated"
@@ -64,7 +66,9 @@ namespace escape {
     msg[CODE_DIGIT] = "code digit"
 
     function logMessage(b: Buffer) {
-        let txt = msg[b[0]] || b[0].toString();
+        let txt = msg[b[0]];
+        if (!txt) return;
+        
         if (b.length == 5)
             txt += ' ' + b.getNumber(NumberFormat.UInt32LE, 1)
         else
