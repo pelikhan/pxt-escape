@@ -1,4 +1,4 @@
-# pxt-escape ![Build status badge](https://github.com/pelikhan/pxt-escape/workflows/MakeCode/badge.svg)
+# [pxt-escape](https://pelikhan.github.io/pxt-escape/) ![Build status badge](https://github.com/pelikhan/pxt-escape/workflows/MakeCode/badge.svg)
 
 This extension provides the base protocol and helpers
 to build connected **escape room** gizmos.
