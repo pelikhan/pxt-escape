@@ -5,6 +5,10 @@ to build connected **escape room** gizmos.
 
 https://youtu.be/je-6slUD054
 
+{% for repository in site.github.public_repositories %}
+  * [{{ repository.name }}]({{ repository.html_url }})
+{% endfor %}
+
 ## Devices
 
 The room is composed of various devices communicating.
