@@ -7,6 +7,8 @@ https://youtu.be/je-6slUD054
 
 ## Devices
 
+The room is composed of various devices communicating.
+
 ### Game Master
 
 The [game master](https://github.com/pelikhan/pxt-escape-game-master)
