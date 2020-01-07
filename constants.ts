@@ -126,7 +126,7 @@ namespace escape {
     /**
      * Registers a background rendering constant
      */
-    //% block="escape on update %handler"
+    //% block="escape on update"
     export function onUpdate(handler: () => void) {
         control.onEvent(ESCAPE_EVENT_ID, UPDATE, handler);
     }
