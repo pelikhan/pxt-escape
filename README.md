@@ -87,7 +87,7 @@ let x = 0
 ```
 
 ```blocks
-let x = `1
+let x = 1
 ```
 
 
@@ -168,7 +168,7 @@ var makeCodeRenderPre = makeCodeRenderPre || (function () {
 
 function renderSnippets() {
     // TODO ADD RENDER LOGIC HERE
-    let pres = document.getElementsByTagName("pre");
+    let pres = document.queryElementsAll("pre>code[class=lang-blocks]");
     Array.prototype.forEach.call(pres, function (pre) {
         makeCodeRenderPre(pre);
     })
