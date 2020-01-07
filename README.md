@@ -82,3 +82,10 @@ To edit this repository in MakeCode.
 * for PXT/microbit
 (The metadata above is needed for package search.)
 
+```typescript
+let x = 0
+```
+
+```blocks
+let x = `1
+```
