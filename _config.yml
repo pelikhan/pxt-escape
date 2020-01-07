@@ -1,6 +1,4 @@
 kramdown:
   syntax_highlighter_opts:
     disable : true
-plugins:
-  - jekyll-remote-theme
-remote_theme: benbalter/retlab
+theme: jekyll-theme-primer
