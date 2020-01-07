@@ -131,7 +131,7 @@ var makeCodeRenderPre = makeCodeRenderPre || (function () {
                 id: pre.id,
                 code: pre.innerText,
                 options: {
-                	packageId: pre.getAttribute("pub")
+                	package: "github:{% github:site.github.repository_url %}"
                 }
             }, "https://makecode.microbit.org/");
         }
@@ -178,9 +178,4 @@ function renderSnippets() {
 
 renderSnippets();
 </script>
-
-
-```package
-extension=github:site.github.repository_url
-```
 
