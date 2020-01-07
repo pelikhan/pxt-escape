@@ -1,5 +1,4 @@
 kramdown:
   syntax_highlighter_opts:
     disable : true
-theme: jekyll-remote-theme
 remote-theme: pelikhan/primer
