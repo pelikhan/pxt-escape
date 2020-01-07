@@ -66,7 +66,7 @@ escape.onUpdate(function() {
 
 This repository can be added as an **extension** in MakeCode.
 
-* open https://makecode.microbit.org/
+* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
 * click on **New Project**
 * click on **Extensions** under the gearwheel menu
 * search for the URL of this repository and import
@@ -75,15 +75,13 @@ This repository can be added as an **extension** in MakeCode.
 
 To edit this repository in MakeCode.
 
-* open https://makecode.microbit.org/
+* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
 * click on **Import** then click on **Import URL**
 * paste the repository URL and click import
 
-## Supported targets
+### Metadata (used for search, rendering)
 
 * for PXT/microbit
-(The metadata above is needed for package search.)
-
 <script src="https://makecode.com/gh-pages-embed.js"></script>
 <script>
 makeCodeRender("https://makecode.microbit.org/", "{{ site.github.owner_name}}/{{ site.github.repository_name }}");
