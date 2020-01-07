@@ -95,6 +95,6 @@ escape.showCodes();
 
 <script src="https://makecode.com/gh-pages-embed.js"></script>
 <script>
-makeCodeRender("https://makecode.microbit.org/", "pelikhan/pxt-escape");
+makeCodeRender("https://makecode.microbit.org/", "{{ site.github.owner_name}}/{{ site.github.repository_name }}");
 </script>
 
