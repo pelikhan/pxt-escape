@@ -5,12 +5,6 @@ to build connected **escape room** gizmos.
 
 https://youtu.be/je-6slUD054
 
-```package
-{% for repository in site.github.public_repositories %}
-  * [{{ repository.name }}]({{ repository.html_url }})
-{% endfor %}
-```
-
 ## Devices
 
 The room is composed of various devices communicating.
@@ -96,6 +90,8 @@ let x = 0
 
 ```blocks
 let x = 1
+escape.onUpdate(function() {
+})
 ```
 
 
@@ -182,3 +178,9 @@ function renderSnippets() {
 
 renderSnippets();
 </script>
+
+
+```package
+extension=github:site.github.repository_url
+```
+
