@@ -94,7 +94,7 @@ escape.showCodes();
 
 
 <script>
-var makeCodeRenderPre = makeCodeRenderPre || (function () {
+function makeCodeRender(targetUrl, repo) {
     // pre waiting to be rendered
     // when undefined, iframe is loaded and ready
     var pendingPres = [];
@@ -111,7 +111,7 @@ var makeCodeRenderPre = makeCodeRenderPre || (function () {
         f.style.bottom = 0;
         f.style.width = "1px";
         f.style.height = "1px";
-        f.src = "https://makecode.microbit.org/--docs?render=1"
+        f.src = targetUrl + "--docs?render=1"
         document.body.appendChild(f);
     }
 
@@ -129,9 +129,9 @@ var makeCodeRenderPre = makeCodeRenderPre || (function () {
                 id: pre.id,
                 code: pre.innerText,
                 options: {
-                	package: "{{ site.github.repository_name }}=github:{{ site.github.owner_name }}/{{ site.github.repository_name }}"
+                	package: "extension=github:" + repo
                 }
-            }, "https://makecode.microbit.org/");
+            }, targetUrl);
         }
     }
 
@@ -164,16 +164,13 @@ var makeCodeRenderPre = makeCodeRenderPre || (function () {
         }
     }, false);
 
-    return renderPre;
-})();
-
-function renderSnippets() {
-    let pres = document.querySelectorAll("pre>code[class=language-blocks]");
+    var pres = document.querySelectorAll("pre>code[class=language-blocks]");
+    var render = makeCodeRenderPre()
     Array.prototype.forEach.call(pres, function (pre) {
         makeCodeRenderPre(pre);
     })
 }
 
-renderSnippets();
+makeCodeRender("https://makecode.microbit.org/", "pelikhan/pxt-escape");
 </script>
 
