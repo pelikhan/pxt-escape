@@ -93,7 +93,7 @@ escape.showCodes();
 ```
 
 
-<script src="https://makecode.com/gh-pages.embed.js"></script>
+<script src="https://makecode.com/gh-pages-embed.js"></script>
 <script>
 makeCodeRender("https://makecode.microbit.org/", "pelikhan/pxt-escape");
 </script>
