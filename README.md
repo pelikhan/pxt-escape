@@ -51,11 +51,6 @@ is a hidden micro:bit that needs to be disabled by pressing a button
 
 Received when a particular event happened on a device in the game.
 
-### onMessageReceived
-
-Raised on every message passed in the game. Unlike ``onEvent``,
-provide event id and data payload.
-
 ### onUpdate
 
 Use this function register the code that renders the current 
@@ -63,10 +58,9 @@ state to the gizmo. If the game is lost or won, it will display
 the correct animation.
 
 ```blocks
-escape.upUpdate(function() {
+escape.onUpdate(function() {
 })
 ```
-
 
 ## Use this extension
 
