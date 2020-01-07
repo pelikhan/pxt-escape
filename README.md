@@ -114,8 +114,7 @@ var makeCodeRenderPre = makeCodeRenderPre || (function () {
     }
 
     function renderPre(pre) {
-    		if(!pre.id) pre.id = Math.random();
-        console.log('render ' + pre.id)
+    	if(!pre.id) pre.id = Math.random();
         var f = document.getElementById("makecoderenderer");
         // check if iframe is added and ready (pendingPres is undefined)
         if (!f || !!pendingPres) {
@@ -167,13 +166,11 @@ var makeCodeRenderPre = makeCodeRenderPre || (function () {
 })();
 
 function renderSnippets() {
-    // TODO ADD RENDER LOGIC HERE
     let pres = document.querySelectorAll("pre>code[class=lang-blocks]");
     Array.prototype.forEach.call(pres, function (pre) {
         makeCodeRenderPre(pre);
     })
 }
 
-// load the renderer
 renderSnippets();
 </script>
