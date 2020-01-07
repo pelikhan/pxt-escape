@@ -1,4 +1,4 @@
 kramdown:
   syntax_highlighter_opts:
     disable : true
-remote-theme: pelikhan/primer
+remote_theme: pelikhan/primer
