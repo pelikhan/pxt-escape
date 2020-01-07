@@ -131,7 +131,7 @@ var makeCodeRenderPre = makeCodeRenderPre || (function () {
                 id: pre.id,
                 code: pre.innerText,
                 options: {
-                	package: "github:{{ site.github.owner_name }}/{{ site.github.repository_name }}"
+                	package: "{{ site.github.owner_name }}/{{ site.github.repository_name }}"
                 }
             }, "https://makecode.microbit.org/");
         }
