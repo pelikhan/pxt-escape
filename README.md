@@ -89,9 +89,7 @@ let x = 0
 ```
 
 ```blocks
-let x = 1
-escape.onUpdate(function() {
-})
+escape.showCodes();
 ```
 
 
