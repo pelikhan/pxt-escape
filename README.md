@@ -112,7 +112,9 @@ var makeCodeRenderPre = makeCodeRenderPre || (function () {
         f.src = "https://makecode.microbit.org/--docs?render=1"
         document.body.appendChild(f);
     }
+
     function renderPre(pre) {
+    		if(!pre.id) pre.id = Math.random();
         console.log('render ' + pre.id)
         var f = document.getElementById("makecoderenderer");
         // check if iframe is added and ready (pendingPres is undefined)
@@ -126,15 +128,17 @@ var makeCodeRenderPre = makeCodeRenderPre || (function () {
                 id: pre.id,
                 code: pre.innerText,
                 options: {
-                	packageId: pre.getAttribute("data-packageid")
+                	packageId: pre.getAttribute("pub")
                 }
             }, "https://makecode.microbit.org/");
         }
     }
+
     // listen for messages
     window.addEventListener("message", function (ev) {
         var msg = ev.data;
         if (msg.source != "makecode") return;
+
         console.log(msg.type)
         switch (msg.type) {
             case "renderready":
@@ -158,8 +162,10 @@ var makeCodeRenderPre = makeCodeRenderPre || (function () {
                 break;
         }
     }, false);
+
     return renderPre;
 })();
+
 function renderSnippets() {
     // TODO ADD RENDER LOGIC HERE
     let pres = document.getElementsByTagName("pre");
@@ -167,5 +173,7 @@ function renderSnippets() {
         makeCodeRenderPre(pre);
     })
 }
+
+// load the renderer
 renderSnippets();
 </script>
