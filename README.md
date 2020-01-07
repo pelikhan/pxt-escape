@@ -62,6 +62,12 @@ Use this function register the code that renders the current
 state to the gizmo. If the game is lost or won, it will display
 the correct animation.
 
+```blocks
+escape.upUpdate(function() {
+})
+```
+
+
 ## Use this extension
 
 This repository can be added as an **extension** in MakeCode.
@@ -83,15 +89,6 @@ To edit this repository in MakeCode.
 
 * for PXT/microbit
 (The metadata above is needed for package search.)
-
-```typescript
-let x = 0
-```
-
-```blocks
-escape.showCodes();
-```
-
 
 <script src="https://makecode.com/gh-pages-embed.js"></script>
 <script>
