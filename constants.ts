@@ -91,6 +91,7 @@ namespace escape {
     /**
      * Register code to run when a game event is raised.
      */
+    //% block
     export function onEvent(event: number, handler: () => void) {
         control.onEvent(ESCAPE_EVENT_ID, event, handler);
     }
@@ -125,6 +126,7 @@ namespace escape {
     /**
      * Registers a background rendering constant
      */
+    //% block
     export function onUpdate(handler: () => void) {
         control.onEvent(ESCAPE_EVENT_ID, UPDATE, handler);
     }
@@ -147,6 +149,7 @@ namespace escape {
     /**
      * Sends a code message to other escape gizmos
      */
+    //% block
     export function broadcastMessage(msg: number) {
         const b = control.createBuffer(1)
         b[0] = msg;
@@ -156,6 +159,7 @@ namespace escape {
     /**
      * Sends a code message with a 32-bit unsigned code
      */
+    //% block
     export function broadcastMessageNumber(msg: number, codeNumber: number) {
         const b = control.createBuffer(5);
         b[0] = msg;
@@ -166,6 +170,7 @@ namespace escape {
     /**
      * Sends a code message with a few retries
      */
+    //% block
     export function broadcastCodeMessage(codeNumber: number) {
         for (let i = 0; i < CODE_RETRY; ++i) {
             escape.broadcastMessageNumber(escape.CODE, codeNumber);
@@ -176,6 +181,7 @@ namespace escape {
     /**
      * Encodes a number as a binary sequence of A,B where A = 0, B = 1
      */
+    //% block
     export function toAB(c: number) {
         let s = ""
         do {
@@ -198,6 +204,10 @@ namespace escape {
         return c;
     }
 
+    /**
+    Show all codes on screen
+    */
+    //% block
     export function showCodes() {
         for(let i = 0; i < CODES.length; ++i) {
             basic.clearScreen();
