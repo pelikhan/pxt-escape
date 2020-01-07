@@ -165,9 +165,8 @@ function makeCodeRender(targetUrl, repo) {
     }, false);
 
     var pres = document.querySelectorAll("pre>code[class=language-blocks]");
-    var render = makeCodeRenderPre()
     Array.prototype.forEach.call(pres, function (pre) {
-        makeCodeRenderPre(pre);
+        renderPre(pre);
     })
 }
 
