@@ -166,7 +166,7 @@ var makeCodeRenderPre = makeCodeRenderPre || (function () {
 })();
 
 function renderSnippets() {
-    let pres = document.querySelectorAll("pre>code[class=lang-blocks]");
+    let pres = document.querySelectorAll("pre>code[class=language-blocks]");
     Array.prototype.forEach.call(pres, function (pre) {
         makeCodeRenderPre(pre);
     })
