@@ -1,3 +1,4 @@
+//% icon="\uf3c1"
 namespace escape {
     // configuration
     // 1) physical lock combination
