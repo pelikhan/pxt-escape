@@ -1,13 +1,56 @@
-# pxt-escape ![Build status badge](https://github.com/pelikhan/pxt-escape/workflows/MakeCode/badge.svg)
-
-This extension provides the base protocol and helpers
-to build connected **escape room** gizmos.
+# micro:escape, a MakeCode/micro:bit powered Escape Room experience
 
 https://youtu.be/je-6slUD054
 
-## Devices
+This project contains the build instructions and necessary firmware to build 
+an escape room using MakeCode and micro:bit. 
+This room was originally build as a birthday activity; it worked great with kids and adults!
 
-The room is composed of various devices communicating.
+> **SPOILER ALERT** If you read those instructions, it will be much less fun to play the room.
+
+## The skeleton story
+
+The plot of the room is fairly basic and can be tweaked to fit your liking:
+
+* play players have a fixed time  to find and disable the bomb (the **clock micro:bit** displays countdown)
+* the bomb mechanism (the **bomb micro:bit**) is inside in a box
+* the box is locked by a physical combination lock
+* the key of the combination lock is registerd in 4 micro:bit (**lock micro:bit**)
+* each key micro:bit can be unlocked via a unique code transmitted using radio
+* a micro:bit device is available in the room to transmit codes (rotary phone or binary encoder **phone micro:bit**)
+* codes are hidden in the room one way or the other
+* a **game master micro:bit** allows the operator to monitor the status of the system
+and control the clock.
+
+Around those basic principles, you'll want to build a story that fits the theme of your party
+or the room ambience. Feel free to remix and modify as you need it.
+
+## Materials
+
+The materials below are based on hiding code using UV markers and UV light.
+It's a fun way to place secret numbers in a room.
+
+* 7 micro:bits, battery packs and spare batteries
+* a UV light marker
+* 2 UV flashlight, the same flashlight used to spot dog pee spots
+* a box and a 4-digit combination lock for that box
+* (optional) a old rotary phone
+* (optional) a old typewriter
+
+## Code setup
+
+The first task is to find and hide 4 codes in the room. Using the UV markers,
+
+* you can draw a code as sticks on the wall,
+* you can paint the numbers of a computer keyboard,
+* find more ways to encode codes in your room!
+
+If you are using the A/B encoder, keep the number short (1000-1000 range) as they will have to be encoded in binary
+over radio. Once you have picked 4 codes, marked them down on paper.
+
+## Device setup
+
+The room is composed of various micro:bit communicating.
 
 ### Game Master
 
