@@ -1,21 +1,21 @@
 {
     "name": "escape",
+    "version": "0.2.11",
+    "description": "",
     "dependencies": {
         "core": "*",
         "radio": "*"
     },
-    "description": "",
     "files": [
         "main.ts",
         "README.md",
         "constants.ts"
     ],
-    "preferredEditor": "tsprj",
     "testFiles": [
         "test.ts"
     ],
-    "version": "0.2.11",
     "supportedTargets": [
         "microbit"
-    ]
+    ],
+    "preferredEditor": "tsprj"
 }
