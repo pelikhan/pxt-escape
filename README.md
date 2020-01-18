@@ -1,4 +1,3 @@
-# micro:escape, a MakeCode/micro:bit powered Escape Room experience
 
 https://youtu.be/je-6slUD054
 
