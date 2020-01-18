@@ -34,6 +34,7 @@ It's a fun way to place secret numbers in a room.
 * a UV light marker
 * 2 UV flashlight, the same flashlight used to spot dog pee spots
 * a box and a 4-digit combination lock for that box
+* (optional) Music speaker and smoke machine
 * (optional) a old rotary phone
 * (optional) a old typewriter
 
@@ -50,30 +51,44 @@ over radio. Once you have picked 4 codes, marked them down on paper.
 
 ## Device setup
 
-The room is composed of various micro:bit communicating.
+The room is composed of various micro:bit communicating. 
+You will need to download the code in each micro:bit to get the room setup.
+
+It's recommend to use double-sided tape to secure the battery pack to the back of the
+micro:bit and use clear tap + sharpie to mark each micro:bit with their roles.
 
 ### Game Master
 
 The [game master](https://github.com/pelikhan/pxt-escape-game-master)
 controls the clock, reset the game and log all messages.
-Connect the micro:bit game master to the editor to 
+
+* **Update the game master source code with your codes!**
+* Download the program
+* Connect the micro:bit game master to the editor to 
 see the messages in the console.
 
 Pressing A removes a minute, B adds a minute, A+B resets the clock.
 
-If the detonator is disabed,the clock will show a WIN message.
-If the time runs off, it will display a LOSE message.
+If the detonator is disabed,the clock will show a ``WIN`` message.
+If the time runs off, it will display a ``LOSE`` message.
 
 ### Clock
 
 The [escape clock](https://github.com/pelikhan/pxt-escape-clock)
 displays the time.
 
+* Download the program
+* Check that the clock displays time
+
+Try pressing A/B on the game master and check that the clock is updating.
+
 ### Lock
 
 The [escape lock](https://github.com/pelikhan/pxt-escape-lock)
-is a gizmo that controls a combination for a lock.
+is a micro:bit that controls a combination for a lock.
 It requires all locks to be enabled for them to show their digits.
+
+* Change the digit for each micro:bit and download it.
 
 Each lock is waiting for a code to be sent via radio.
 
@@ -83,12 +98,25 @@ The [escape phone](https://github.com/pelikhan/pxt-escape-phone)
 is a rotary phone driver to send codes over radio. Players use
 it to send codes to the locks.
 
+* If you have a vintage rotary phone at hand, 
+here is a [guide to convert it](https://youtu.be/je-6slUD054)
+* Otherwise, numbers can be encoded as a binary sequence of A and B button presses (A = 0, B = 1)
+
 ### Detonator
 
 The [escape detonator](https://github.com/pelikhan/pxt-escape-bomb),
 is a hidden micro:bit that needs to be disabled by pressing a button
 
-## Usage
+* Download the program to 1 micro:bit
+
+## Room setup
+
+Once all the micro:bit have been prepared, 
+you're ready to put it all together and get the escaping to work.
+
+## API Usage
+
+If you plan to modify the code, here's a bit of docs.
 
 ### onEvent
 
