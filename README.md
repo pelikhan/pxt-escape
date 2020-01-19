@@ -1,5 +1,5 @@
 
-https://youtu.be/je-6slUD054
+<iframe width="560" height="315" src="https://www.youtube.com/embed/je-6slUD054" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 This project contains the build instructions and necessary firmware to build 
 an escape room using MakeCode and micro:bit. 
