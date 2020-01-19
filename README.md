@@ -1,4 +1,4 @@
-https://www.youtube.com/embed/je-6slUD054
+{% include youtube.html id=je-6slUD054 %}
 
 This project contains the build instructions and necessary firmware to build 
 an escape room using MakeCode and micro:bit. 
