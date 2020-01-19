@@ -1,4 +1,4 @@
-{% include youtube.html id=je-6slUD054 %}
+[![Demo of the room](https://img.youtube.com/vi/je-6slUD054/0.jpg)](https://www.youtube.com/watch?v=je-6slUD054)
 
 This project contains the build instructions and necessary firmware to build 
 an escape room using MakeCode and micro:bit. 
