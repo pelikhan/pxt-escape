@@ -1,4 +1,5 @@
-[![Demo of the room](https://img.youtube.com/vi/je-6slUD054/0.jpg)](https://www.youtube.com/watch?v=je-6slUD054)
+
+https://youtu.be/je-6slUD054
 
 This project contains the build instructions and necessary firmware to build 
 an escape room using MakeCode and micro:bit. 
@@ -22,11 +23,6 @@ and control the clock.
 
 Around those basic principles, you'll want to build a story that fits the theme of your party
 or the room ambience. Feel free to remix and modify as you need it.
-
-![A code written on the wall](./assets/img/sticks.jpg)
-![A code hidden in furniture](./assets/img/score.jpg)
-![A code hidden on pool balls](./assets/img/balls.jpg)
-![A code hidden on darts target](./assets/img/darts.jpg)
 
 ## Materials
 
